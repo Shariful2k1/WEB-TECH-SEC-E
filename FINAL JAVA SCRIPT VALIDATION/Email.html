@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+</head>
+<body>
+        <h1>Email</h1>
+
+        <input type="text" name="email" id="email" onkeyup="email()" />
+        <input type="button" name="click" value="Click" onclick=" email()" />
+
+        <script>
+
+                function email(){
+                    let email = document.getElementById('email').value;
+                    
+
+                    if(email == ""){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Please enter all the details! Incomplete form submitted.";
+                       obj.style.color = "red";
+                    }
+                    else if (email.indexOf('@') < 1 || email.indexOf('.com') < 1){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Email must contain @ and .com(e.g: @example.com)";
+                       obj.style.color = "red";
+                    } 
+                    else {
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "validation Successful";
+                       obj.style.color = "green";
+                    }
+
+                }
+
+                
+        </script>
+</body>
+</html>

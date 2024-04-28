@@ -1,0 +1,200 @@
+<html lang="en">
+<head>
+    <title>Person Profile</title>
+</head>
+<body>
+    <center>
+        <h1 id="validationMessage">PERSON PROFILE</h1>
+    </center>
+
+    Name : <input type="text" name="username" id="username" onkeyup="username()" /><br>
+    Email : <input type="text" name="email" id="email" onkeyup="email()" /><br>
+    Gender : <input type="radio" name="gender" id="maleRadio" value="Male" onchange="gender()" /> Male
+    <input type="radio" name="gender" id="femaleRadio" value="Female" onchange="gender()" /> Female
+    <input type="radio" name="gender" id="otherRadio" value="Other" onchange="gender()"  /> Other <br>
+    Date of birth : <input type="number" id="dd" name="dd" placeholder="dd" onkeyup="DoB()"/> / 
+    <input type="number" id="mm" name="mm" placeholder="mm" onkeyup="DoB()"/> / 
+    <input type="number" id="yyyy" name="yyyy" placeholder="yyyy" onkeyup="DoB()"/><br>
+    Blood Group : <select id="bloodgroupSelect" onchange="bloodgroup()">
+        <option id="A+" value="A+">A+</option>
+        <option id="B+" value="B+">B+</option>
+        <option id="AB+" value="AB+">AB+</option>
+        <option id="O+" value="O+">O+</option>
+        <option id="A-" value="A-">A-</option>
+        <option id="O-" value="O-">O-</option>
+        <option id="AB-" value="AB-">AB-</option>
+    </select><br>
+    Degree : <input type="checkbox" name="degree" id="SSC" value="SSC" onchange="degree()" /> SSC
+    <input type="checkbox" name="degree" id="HSC" value="HSC" onchange="degree()" /> HSC
+    <input type="checkbox" name="degree" id="BSc" value="BSc" onchange="degree()"  /> BSc <br>
+    User ID: <input type="text" name="userid" id="userid" value=""><br><br>
+    Profile Picture <input type="file" name="myimg" id="myimg" value=""><br><br>
+    <input type="button" name="submit" value="Submit" onclick="validateForm()">
+    
+    <script>
+        function validateForm() {
+            username();
+            email();
+            gender();
+            DoB();
+            bloodgroup();
+            degree();
+            fileupValidation();
+        }
+
+                function username(){
+                    let username = document.getElementById('username').value;
+                    let trimmedName = username.trim();
+                    let firstChar = trimmedName.substring(0, 1);
+
+                    if(username == ""){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Please enter all the details! Incomplete form submitted.";
+                       obj.style.color = "red";
+                    }
+                    else if (firstChar === "-" || firstChar === ".") {
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Name must start with a letter";
+                       obj.style.color = "red";
+                    }
+                    else if (username.trim() === username && username.indexOf(' ') === -1){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Name must contain two words";
+                       obj.style.color = "red";
+                    }
+                    else if (username.includes('@') || username.includes('_') || username.includes('#') || username.includes('$') || username.includes('%')
+                    || username.includes('/') || username.includes('*') || username.includes('+') || username.includes('(') || username.includes(')')
+                    || username.includes('!') || username.includes('^') || username.includes('[') || username.includes(']') || username.includes('{')
+                    || username.includes('}') || username.includes('|') || username.includes('`') || username.includes('~') || username.includes('<')
+                    || username.includes('1') || username.includes('2') || username.includes('3') || username.includes('4') || username.includes('5')
+                    || username.includes('6') || username.includes('7') || username.includes('8') || username.includes('9') || username.includes('0')
+                    || username.includes('>') || username.includes('=') || username.includes('?') || username.includes(':') || username.includes('"')
+                    || username.includes("'")){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Name can only contan alphabets,dots and dashes.";
+                       obj.style.color = "red";
+                    }
+                    else {
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Name validation successful";
+                       obj.style.color = "Green";
+                    }
+                    
+
+                }
+                function email(){
+                    let email = document.getElementById('email').value;
+                    
+
+                    if(email == ""){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Please enter all the details! Incomplete form submitted.";
+                       obj.style.color = "red";
+                    }
+                    else if (email.indexOf('@') < 1 || email.indexOf('.com') < 1){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Email must contain @ and .com(e.g: @example.com)";
+                       obj.style.color = "red";
+                    } 
+                    else {
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Email validation Successful";
+                       obj.style.color = "green";
+                    }
+
+                }
+                function gender() {
+            let male = document.getElementById('male').checked;
+            let female = document.getElementById('female').checked;
+            let other = document.getElementById('other').checked;
+            let validationMessage = document.getElementById('validationMessage');
+
+            if (male || female || other) {
+                validationMessage.innerHTML = "Gender Validation Successful";
+                validationMessage.style.color = "green";
+            } else {
+                validationMessage.innerHTML = "At least select one option";
+                validationMessage.style.color = "red";
+            }
+        }
+
+        function DoB(){
+            let dd = document.getElementById('dd').value;
+            let mm = document.getElementById('mm').value;
+            let yyyy = document.getElementById('yyyy').value;
+            
+            if(dd == "" || mm == "" || yyyy == ""){
+                let obj= document.getElementsByTagName('h1')[0];
+                obj.innerHTML = "Please enter all the details! Incomplete form submitted.";
+                obj.style.color = "red";
+            } else if(dd < 1 || dd> 31 || mm < 1 || mm > 12 || yyyy < 1900 || yyyy > 2016) {
+                let obj= document.getElementsByTagName('h1')[0];
+                obj.innerHTML = "Date must be in between 1-31 || Month must be in between 1-12 || Year must be in between 1900-2016";
+                obj.style.color = "red";
+            } else {
+                let obj= document.getElementsByTagName('h1')[0];
+                obj.innerHTML = "Date of birth validation successful";
+                obj.style.color = "Green";
+            }
+        }
+
+        function bloodgroup() {
+            let A = document.getElementById('A+').selected;
+            let B = document.getElementById('B+').selected;
+            let AB = document.getElementById('AB+').selected;
+            let O = document.getElementById('O+').selected;
+            let AA = document.getElementById('A-').selected;
+            let OO = document.getElementById('O-').selected;
+            let ABAB = document.getElementById('AB-').selected;
+
+            let validationMessage = document.getElementById('validationMessage');
+
+            if (A || B || AB || O || AA || OO || ABAB) {
+                validationMessage.innerHTML = "Blood group validation Successful";
+                validationMessage.style.color = "green";
+            } else {
+                validationMessage.innerHTML = "At least select one option";
+                validationMessage.style.color = "red";
+            }
+        }
+
+        function degree() {
+            let SSC = document.getElementById('SSC').checked;
+            let HSC = document.getElementById('HSC').checked;
+            let BSc = document.getElementById('BSc').checked;
+            let validationMessage = document.getElementById('validationMessage');
+
+            if (SSC || HSC || BSc) {
+                validationMessage.innerHTML = "Degree Validation Successful";
+                validationMessage.style.color = "green";
+            } else {
+                validationMessage.innerHTML = "At least select one option";
+                validationMessage.style.color = "red";
+            }
+        }
+
+        function fileupValidation(){
+                    let  uid=document.getElementById('userid').value;
+                    let myimg=document.getElementById('myimg');
+        
+                    if (uid == "") {
+                        let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Please write user ID.";
+                       obj.style.color = "red";
+                    } 
+                    else if (myimg.files.length==0){
+                        let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Select profile image.";
+                       obj.style.color = "red";
+                    }
+                    else {
+                        let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Person image validation Successful";
+                       obj.style.color = "green";}
+    
+            }
+
+                
+        </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+<title>Date of Birth</title>
+</head>
+<body>
+    <h1>Date of Birth</h1>
+
+    <input type="number" id="dd" name="dd" placeholder="dd" onkeyup="DoB()"/> / 
+    <input type="number" id="mm" name="mm" placeholder="mm" onkeyup="DoB()"/> / 
+    <input type="number" id="yyyy" name="yyyy" placeholder="yyyy" onkeyup="DoB()"/>
+    <br> <br> 
+    <input type="button" name="click" value="Click" onclick="DoB()"/>
+
+    <script>
+        function DoB(){
+            let dd = document.getElementById('dd').value;
+            let mm = document.getElementById('mm').value;
+            let yyyy = document.getElementById('yyyy').value;
+            
+            if(dd == "" || mm == "" || yyyy == ""){
+                let obj= document.getElementsByTagName('h1')[0];
+                obj.innerHTML = "Please enter all the details! Incomplete form submitted.";
+                obj.style.color = "red";
+            } else if(dd < 1 || dd> 31 || mm < 1 || mm > 12 || yyyy < 1900 || yyyy > 2016) {
+                let obj= document.getElementsByTagName('h1')[0];
+                obj.innerHTML = "Date must be in between 1-31 || Month must be in between 1-12 || Year must be in between 1900-2016";
+                obj.style.color = "red";
+            } else {
+                let obj= document.getElementsByTagName('h1')[0];
+                obj.innerHTML = "Validation successful";
+                obj.style.color = "Green";
+            }
+        }
+    </script>
+</body>
+</html>

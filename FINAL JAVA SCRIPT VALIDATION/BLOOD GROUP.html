@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+<title>Blood Group</title>
+</head>
+<body>
+    <h1 id="validationMessage">Blood Group</h1>
+    <select id="bloodgroupSelect" onchange="bloodgroup()">
+        <option id="A+" value="A+">A+</option>
+        <option id="B+" value="B+">B+</option>
+        <option id="AB+" value="AB+">AB+</option>
+        <option id="O+" value="O+">O+</option>
+        <option id="A-" value="A-">A-</option>
+        <option id="O-" value="O-">O-</option>
+        <option id="AB-" value="AB-">AB-</option>
+    </select>
+    <input type="button" name="click" value="Click" onclick="bloodgroup()" />
+
+    <script>
+        function bloodgroup() {
+            let A = document.getElementById('A+').selected;
+            let B = document.getElementById('B+').selected;
+            let AB = document.getElementById('AB+').selected;
+            let O = document.getElementById('O+').selected;
+            let AA = document.getElementById('A-').selected;
+            let OO = document.getElementById('O-').selected;
+            let ABAB = document.getElementById('AB-').selected;
+
+            let validationMessage = document.getElementById('validationMessage');
+
+            if (A || B || AB || O || AA || OO || ABAB) {
+                validationMessage.innerHTML = "Validation Successful";
+                validationMessage.style.color = "green";
+            } else {
+                validationMessage.innerHTML = "At least select one option";
+                validationMessage.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

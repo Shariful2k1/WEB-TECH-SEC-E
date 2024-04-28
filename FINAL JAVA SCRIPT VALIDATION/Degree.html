@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+<title>Degree</title>
+</head>
+<body>
+    <h1 id="validationMessage">Degree</h1>
+    <input type="checkbox" name="degree" id="SSC" value="SSC" onchange="degree()" /> SSC
+    <input type="checkbox" name="degree" id="HSC" value="HSC" onchange="degree()" /> HSC
+    <input type="checkbox" name="degree" id="BSc" value="BSc" onchange="degree()"  /> BSc <br>
+    <input type="button" name="click" value="Click" onclick="degree()" />
+
+    <script>
+        function degree() {
+            let SSC = document.getElementById('SSC').checked;
+            let HSC = document.getElementById('HSC').checked;
+            let BSc = document.getElementById('BSc').checked;
+            let validationMessage = document.getElementById('validationMessage');
+
+            if (SSC || HSC || BSc) {
+                validationMessage.innerHTML = "Validation Successful";
+                validationMessage.style.color = "green";
+            } else {
+                validationMessage.innerHTML = "At least select one option";
+                validationMessage.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>

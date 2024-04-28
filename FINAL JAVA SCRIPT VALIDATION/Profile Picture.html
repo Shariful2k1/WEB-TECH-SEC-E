@@ -1,0 +1,37 @@
+<html lang="en">
+    <head>
+        <title>Image Validation</title>
+    </head>
+        <body>
+            <h1>Image Validation</h1>
+            User ID: <input type="text" name="userid" id="userid" value=""><br><br>
+            Profile Picture <input type="file" name="myimg" id="myimg" value=""><br><br>
+            <input type="button" name="submit" value="Upload Image" onclick="fileupValidation()">
+    
+    
+            <script>
+                function fileupValidation(){
+                    let  uid=document.getElementById('userid').value;
+                    let myimg=document.getElementById('myimg');
+        
+                    if (uid == "") {
+                        let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Please write user ID.";
+                       obj.style.color = "red";
+                    } 
+                    else if (myimg.files.length==0){
+                        let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Select profile image.";
+                       obj.style.color = "red";
+                    }
+                    else {
+                        let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Validation Successful";
+                       obj.style.color = "green";}
+    
+            }
+            </script>
+    
+        </body>
+    </html>
+    

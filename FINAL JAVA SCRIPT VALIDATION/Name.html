@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+</head>
+<body>
+        <h1>Name</h1>
+
+        <input type="text" name="username" id="username" onkeyup="username()" />
+        <input type="button" name="click" value="Click" onclick=" username()" />
+
+        <script>
+
+                function username(){
+                    let username = document.getElementById('username').value;
+                    username=username.trim();
+                    let trimmedName = username.trim();
+                    let firstChar = trimmedName.substring(0, 1);
+
+                    if(username == ""){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Please enter all the details! Incomplete form submitted.";
+                       obj.style.color = "red";
+                    }
+                    else if (firstChar === "-" || firstChar === ".") {
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Name must start with a letter";
+                       obj.style.color = "red";
+                    }
+                    else if (username.trim() === username && username.indexOf(' ') === -1){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Name must contain two words";
+                       obj.style.color = "red";
+                    }
+                    else if (username.includes('@') || username.includes('_') || username.includes('#') || username.includes('$') || username.includes('%')
+                    || username.includes('/') || username.includes('*') || username.includes('+') || username.includes('(') || username.includes(')')
+                    || username.includes('!') || username.includes('^') || username.includes('[') || username.includes(']') || username.includes('{')
+                    || username.includes('}') || username.includes('|') || username.includes('`') || username.includes('~') || username.includes('<')
+                    || username.includes('1') || username.includes('2') || username.includes('3') || username.includes('4') || username.includes('5')
+                    || username.includes('6') || username.includes('7') || username.includes('8') || username.includes('9') || username.includes('0')
+                    || username.includes('>') || username.includes('=') || username.includes('?') || username.includes(':') || username.includes('"')
+                    || username.includes("'")){
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Name can only contan alphabets,dots and dashes.";
+                       obj.style.color = "red";
+                    }
+                    else {
+                       let obj= document.getElementsByTagName('h1')[0];
+                       obj.innerHTML = "Name validation successful";
+                       obj.style.color = "Green";
+                    }
+
+                }
+
+                
+        </script>
+</body>
+</html>
