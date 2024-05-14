@@ -3,28 +3,38 @@
     ?>
 <html>
     <head>
+    <link rel="stylesheet" href="../Css/style.css">
+    <script src="../Assets/myjs.js"></script>
         <title>DigiFarm</title>
     </head>
     <body>
         <table border="1" align="center" width="650px">
             <tr>
                 <td>
-                   <h1>DigiFarm</h1> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
-                    <a href= "Login.php">  Back </a>
+                   <h1 class="Head">DigiFarm</h1> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; 
+                    <a class="button" href= "Login.php">  Back </a>
                 </td>
-                <form method="post" action="../controller/Forgotpasswordcheck.php">
+                <form method="post" action=""  >
                 <tr>
                     <td>
                                 <center> 
-                                Forgot Password?<br>
-                                    Username: <input type="text" size="30" name="username" value="" >
                                     <br>
-                                    New password: <input type="password" size="30" name="newpassword" value="" >
+                                    <fieldset>
+                                <h3 class="title" >Forgot Password? </h3><br>
+                                    Username: <input type="text" size="30" name="username" id="username" value="" >
                                     <br>
-                                    Retype New password:<input type="password" size="30" name="retypepassword" value="" >
+                                    New password: <input type="password" size="30" name="newpassword" id="newpassword" value="" >
                                     <br>
-                                    <input type="submit" name="submit" value="Confirm">
+                                    Retype New password:<input type="password" size="30" name="retypepassword" id="retypepassword" value="" >
                                     <br>
+                                    <input class="button" type="button"  value="Confirm" onclick="Forgot()">
+                                    <br>
+                                    <!-- JS validation-->
+                                    <span id="unameErr"></span>
+                                    <!-- JS validation-->
+                                    <span id="npassErr"></span>
+                                    <!-- JS validation-->
+                                    <span id="rpassErr"></span>
                                     <?php 
                             if(isset($_GET['err'])){
                                 if($_GET['err'] == 'invalid_request'){
@@ -37,6 +47,9 @@
                             }
 
                         ?>
+                        </fieldset>
+                        <br><br>
+                        <center class="Footer">All Rights Reserved Copyright@2024 </center>
                                 </form>
                                 </center>    
                             

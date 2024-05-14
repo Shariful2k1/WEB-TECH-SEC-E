@@ -2,7 +2,7 @@
     function login($username) {
         include "dbconnection.php";
 
-        $sql = "SELECT `password`, `register_as` FROM users WHERE username='$username'";
+        $sql = "SELECT `password`, `register_as` FROM user WHERE username='$username'";
         $result = $conn->query($sql);
         $conn->close();
 
@@ -61,7 +61,7 @@
 
     }
 
-    function signup($register_as, $username, $email, $mobile_no, $password, $DOB, $gender) {
+    function signup( $username,$register_as, $email, $mobile_no, $password, $DOB, $gender) {
         include "dbconnection.php";
 
         $sql = "INSERT INTO users (`username`, `register_as`, `email`, `mobile_no`, `password`, `DOB`, `Gender`)
@@ -70,10 +70,19 @@
         $conn->close();
         return;
     }
+    function sign( $username,$register_as, $email, $mobile_no, $password, $DOB, $gender) {
+        include "dbconnection.php";
+
+        $sql = "INSERT INTO user (`username`, `register_as`, `email`, `mobile_no`, `password`, `DOB`, `Gender`)
+                  VALUES ('$username', '$register_as', '$email', '$mobile_no', '$password', '$DOB', '$gender')";  
+        $conn->query($sql);
+        $conn->close();
+        return;
+    }
 
     function update_pass($username, $newpassword) {
         include "dbconnection.php";
-        $sql = "UPDATE users SET `password`='$newpassword' WHERE `username`='$username'";
+        $sql = "UPDATE user SET `password`='$newpassword' WHERE `username`='$username'";
         $conn->query($sql);
         $conn->close();
         return;

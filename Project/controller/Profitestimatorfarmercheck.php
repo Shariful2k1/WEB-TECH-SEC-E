@@ -11,6 +11,8 @@
     $eexpense = $_REQUEST['eexpense'];
     $smonth = $_REQUEST['smonth'];
     $id=$_REQUEST['id'];
+    $profitt = $_REQUEST['profitt'];
+    echo "Your profit is: ".$profitt;
     $value1=0;
     $value2=0;
     $value3=0;
@@ -78,8 +80,11 @@
         <a href="../view/Farmerdashboard.php">Back</a>
         <?php
         }
+
         
     }
+    echo "Your estimated loss is ". abs($profit). " tk";
+
         
     
 ?>

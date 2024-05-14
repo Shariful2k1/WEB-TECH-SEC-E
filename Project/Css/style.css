@@ -1,0 +1,59 @@
+.Head {
+    background-color:rgb(193, 229, 237);
+    color: rgb(31, 39, 89);
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 20px;
+  }
+  .Footer {
+    background-color: rgb(18, 63, 78);
+    color: white;
+
+  }
+
+  .Text{
+    font-family: 'Times New Roman', Times, serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: rgb(53, 97, 100);
+  }
+
+  .Title {
+    color: rgb(31, 39, 89);
+  }
+  .button {
+    background-color:rgb(18, 63, 78);
+    border: none;
+    color: white;
+    width: 120px;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 2px 1px;
+    border-radius: 8px;
+  }
+
+  fieldset {
+    background-color:rgb(193, 229, 237);
+    color: black;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+  }
+  input,select {
+    background-color: rgb(198, 215, 220);
+    border: none;
+    color: rgb(53, 97, 100);
+  }
+
+  body {
+    background-color: lightblue;
+  }
+
+  img {
+    border: 1px solid #171717;
+    border-radius: 50px;
+    padding: 5px;
+  }

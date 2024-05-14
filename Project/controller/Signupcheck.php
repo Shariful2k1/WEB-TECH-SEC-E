@@ -84,8 +84,8 @@
         <?php
     }
     else{
-        signup($register_as, $username, $email, $mobile_no, $password, $DOB, $gender);
+        sign($register_as, $username, $email, $mobile_no, $password, $DOB, $gender);
 
-        header('location:../view/Login.php');
+        header('location:../view/Signup.php');
     }
 ?>

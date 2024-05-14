@@ -11,7 +11,8 @@
         ?>
         <a href="../view/Login.php">Back</a>
         <?php
-    } else {
+    } 
+    else {
         $value = login($username);
 
         if(is_array($value)) {
